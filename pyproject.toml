@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "temporal-coffee"
+version = "0.1.0"
+description = "Temporal IO coffee order workflow example"
+requires-python = ">=3.11"
+dependencies = [
+    "temporalio>=1.7.0",
+    "pydantic>=2.0",
+]
+
+[project.scripts]
+coffee-worker = "temporal_coffee.worker:main"
+coffee-client = "temporal_coffee.client:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
