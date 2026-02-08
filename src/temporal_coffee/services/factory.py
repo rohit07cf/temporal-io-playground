@@ -1,4 +1,14 @@
-"""Simple factory for service singletons."""
+"""
+Simple factory for service singletons.
+
+The **Factory pattern** centralises service construction. Activities call
+`ServiceFactory.get_*()` instead of instantiating services themselves.
+
+Benefits:
+  - Single point of change if services need constructor args (e.g. API keys).
+  - Cached instances avoid repeated object creation.
+  - Easy to swap implementations for testing (replace class-level cache).
+"""
 
 from temporal_coffee.services.brewing import BrewService
 from temporal_coffee.services.notify import NotificationService
@@ -6,7 +16,7 @@ from temporal_coffee.services.payment import PaymentService
 
 
 class ServiceFactory:
-    """Lazily creates and caches service instances."""
+    """Lazily creates and caches service instances (class-level singletons)."""
 
     _payment: PaymentService | None = None
     _brew: BrewService | None = None
