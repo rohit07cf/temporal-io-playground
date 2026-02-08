@@ -208,6 +208,14 @@ src/temporal_coffee/
 
 ## Getting Started
 
+### 0. Install Temporal CLI
+
+```bash
+curl -sSf https://temporal.download/cli.sh | bash
+echo 'export PATH="$HOME/.temporalio/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
 ### 1. Start the Temporal dev server
 
 ```bash
