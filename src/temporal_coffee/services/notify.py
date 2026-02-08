@@ -1,4 +1,9 @@
-"""Notification service facade."""
+"""
+Notification service facade.
+
+Simulates sending an order receipt (e.g. via email or push notification).
+In production this would integrate with SendGrid, Twilio, etc.
+"""
 
 import asyncio
 import logging
@@ -13,6 +18,6 @@ class NotificationService:
 
     async def send_receipt(self, input: ReceiptInput) -> bool:
         logger.info("Sending receipt for order %s", input.order_id)
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.3)  # Simulate network latency
         logger.info("Receipt sent for order %s", input.order_id)
         return True
